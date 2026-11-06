@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian Post – News, Stories and Independent Blogs</title>
+<meta name="description" content="Meridian Post is a publishing platform for news, analysis and blogs across ten categories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14202e;--mute:#5b6775;--paper:#f6f7f9;--card:#fff;--line:#dde2e8;--acc:#0a6a8f;--acc2:#074e69;--red:#c4302b;--serif:'Source Serif 4',Georgia,serif;--sans:'IBM Plex Sans',system-ui,sans-serif}
+@media(prefers-color-scheme:dark){:root{--ink:#e9edf2;--mute:#9aa6b4;--paper:#0f161e;--card:#17212b;--line:#283544;--acc:#4fb4d9;--acc2:#7cc8e6}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans)}
+a{color:inherit;text-decoration:none}a:hover{color:var(--acc)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.top{background:var(--ink);color:var(--paper);font-size:13px}
+.top .wrap{display:flex;justify-content:space-between;gap:12px;padding:8px 20px;flex-wrap:wrap}
+.top a{color:inherit;margin-left:16px;opacity:.9}.top a:hover{opacity:1;text-decoration:underline;color:inherit}
+header.mast{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.mast .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.logo{font:700 30px/1 var(--serif);letter-spacing:-.5px}.logo span{color:var(--red)}
+nav.main{display:flex;gap:4px;flex-wrap:wrap}
+nav.main a{padding:8px 12px;border-radius:6px;font-weight:500;font-size:15px}
+nav.main a:hover,nav.main a.on{background:var(--paper);color:var(--acc)}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 12px;color:var(--ink);font:inherit;cursor:pointer}
+.btn{display:inline-block;border:0;border-radius:6px;padding:10px 18px;font:600 15px var(--sans);cursor:pointer;background:var(--acc);color:#fff}
+.btn:hover{background:var(--acc2);color:#fff}.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc);background:none}.btn.sm{padding:6px 12px;font-size:14px}.btn.del{background:var(--red)}
+.cats{background:var(--card);border-bottom:1px solid var(--line);overflow-x:auto}
+.cats .wrap{display:flex;gap:2px;white-space:nowrap}
+.cats a{padding:10px 12px;font-size:14px;font-weight:500;color:var(--mute);border-bottom:3px solid transparent}
+.cats a:hover,.cats a.on{color:var(--ink);border-color:var(--c,var(--acc))}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;padding-top:32px;padding-bottom:56px}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(28px,4vw,42px);letter-spacing:-.5px}h2{font-size:26px}h3{font-size:20px}
+.sec{display:flex;align-items:center;gap:12px;margin:36px 0 18px;font:600 20px var(--serif)}
+.sec:first-child{margin-top:0}.sec:after{content:"";flex:1;height:1px;background:var(--line)}
+.tag{display:inline-block;font:600 12px var(--sans);color:#fff;background:var(--c,var(--acc));padding:2px 9px;border-radius:99px}
+.meta{color:var(--mute);font-size:13.5px}
+.th{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--c,var(--acc)),#14202e);aspect-ratio:16/9;border-radius:8px}
+.th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lead{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.lead h2{font-size:clamp(26px,3.4vw,36px)}.lead p{color:var(--mute)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.card .th{border-radius:0}.card .b{padding:16px 18px 18px}.card h3{margin:8px 0 6px}.card p{margin:0 0 8px;color:var(--mute);font-size:15px}
+.row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.row h3{margin:6px 0}.row p{margin:0;color:var(--mute);font-size:15px}
+aside .box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px;margin-bottom:24px}
+aside h4{margin:0 0 10px;font:600 17px var(--serif)}
+.cl a{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.cl a:last-child{border:0}.cl i{font-style:normal;color:var(--mute);font-size:13px}
+.cl b{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);margin-right:9px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);font:inherit}
+label{display:block;font-weight:500;font-size:14px;margin:14px 0 5px}
+textarea{min-height:120px;resize:vertical}
+.form{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:28px;max-width:560px}
+.msg{padding:10px 14px;border-radius:6px;margin:14px 0;font-size:14.5px}.err{background:#fde8e7;color:#8a1b17}.ok{background:#e1f3e8;color:#14603a}
+article.post{max-width:720px}.post .th{margin:20px 0;border-radius:8px}
+.post .body{font:19px/1.75 var(--serif)}.post .body p{margin:0 0 1.2em}
+.prose{max-width:720px}.prose h2{margin-top:1.6em;font-size:22px}.prose li{margin:6px 0}
+.fit{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:0;list-style:none}
+.fit li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0}
+.fit b{display:block;font-family:var(--serif);font-size:17px}
+.share{margin:28px 0 18px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:8px}.share div{display:flex;gap:8px}.share label{margin:0 0 6px}
+footer{background:var(--ink);color:#c9d2dc;padding:40px 0 24px;font-size:14px}
+footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}footer h5{margin:0 0 10px;color:#fff;font:600 15px var(--sans)}
+footer a{display:block;color:#c9d2dc;padding:3px 0}footer a:hover{color:#fff;text-decoration:underline}
+.copy{grid-column:1/-1;border-top:1px solid #2c3b4c;padding-top:16px;margin-top:8px}
+.empty{padding:40px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:8px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.lead{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr}}
+@media(max-width:720px){.burger{display:block}nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);border-bottom:1px solid var(--line);padding:10px 20px;flex-direction:column}nav.main.open{display:flex}.mast{position:relative}.cards,.fit{grid-template-columns:1fr}.row{grid-template-columns:100px 1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span id="date"></span><span id="topright"></span></div></div>
+<header class="mast"><div class="wrap">
+<a class="logo" href="#/">Meridian<span>Post</span></a>
+<button class="burger" id="burger" aria-label="Menu" aria-expanded="false">Menu</button>
+<nav class="main" id="nav"></nav>
+</div></header>
+<div class="cats"><div class="wrap" id="cats"></div></div>
+<div class="wrap grid" id="app"></div>
+<footer><div class="wrap">
+<div><div class="logo" style="color:#fff;margin-bottom:10px">Meridian<span>Post</span></div><p>Independent news, analysis and blogs from writers across ten categories.</p></div>
+<div><h5>Explore</h5><a href="#/">Home</a><a href="#/about">About</a><a href="#/contact">Contact</a><a href="#/privacy">Privacy Policy</a></div>
+<div><h5>Publish</h5><a href="#/register">Create an account</a><a href="#/login">Sign in</a><a href="#/write">Write a story</a></div>
+<div class="copy">© <span id="yr"></span> Meridian Post. All rights reserved.</div>
+</div></footer>
+<script>
+const CATS=[["World","#0a6a8f"],["Politics","#7a3b8f"],["Business","#2f7d4f"],["Technology","#3556c4"],["Science","#0f8a8a"],["Health","#c4302b"],["Sports","#d77a12"],["Entertainment","#b8336a"],["Travel","#5a7d2a"],["Opinion","#4a4f57"]];
+const COL=Object.fromEntries(CATS);
+const mem={};let next=null,fresh=null;
+const DB={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):(mem[k]??d)}catch(e){return mem[k]??d}},set(k,v){mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=t=>new Date(t).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+const $=s=>document.querySelector(s);
+const slugify=t=>t.toLowerCase().normalize('NFKD').replace(/[^\w\s-]/g,'').trim().replace(/\s+/g,'-').slice(0,70).replace(/-+$/,'')||'story';
+async function hash(s){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('mp:'+s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return btoa(unescape(encodeURIComponent('mp:'+s)))}}
+const user=()=>{const e=DB.get('mp_session',null);return e?DB.get('mp_users',[]).find(u=>u.email===e)||null:null};
+
+(function seed(){if(DB.get('mp_posts',null))return;const d=n=>Date.now()-n*864e5;
+const t=(a,b,c)=>[a,b,c].join('\n\n');
+DB.set('mp_posts',[
+{id:'p1',title:'Cities rethink the commute as remote work settles in',cat:'World',author:'Meridian Desk',time:d(0),excerpt:'Transit agencies are redesigning timetables around three-day office weeks and midday travel.',body:t('Transport planners in several large cities are rewriting their playbooks. Peak-hour crowds are smaller, but midday and weekend ridership has grown.','Agencies now publish schedules built around flexible demand rather than the rush hour of the past.','Planners say the shift is permanent and is changing how neighbourhoods, shops and housing are designed.')},
+{id:'p2',title:'Small businesses turn to automation to manage rising costs',cat:'Business',author:'Meridian Desk',time:d(1),excerpt:'Owners say simple tools for billing and stock are saving hours each week.',body:t('Shop owners are adopting low-cost software to handle invoices, reminders and inventory.','Many report saving several hours a week, which they spend on customers instead of paperwork.','Advisers recommend starting with one process and measuring results before expanding.')},
+{id:'p3',title:'What the latest chip designs mean for everyday devices',cat:'Technology',author:'Meridian Desk',time:d(2),excerpt:'More efficient processors are extending battery life without raising prices.',body:t('New processor generations focus on efficiency rather than raw speed.','For phones and laptops this means longer battery life and cooler devices.','Analysts expect the trend to continue as on-device features become more common.')},
+{id:'p4',title:'Researchers map how sleep supports memory',cat:'Science',author:'Meridian Desk',time:d(3),excerpt:'A new study tracks how the brain replays the day while we rest.',body:t('Scientists observed activity patterns during sleep that match those recorded while learning.','The findings add to evidence that regular sleep helps lock in new information.','Further work will test whether the effect can be strengthened safely.')},
+{id:'p5',title:'A weekend guide to slow travel by rail',cat:'Travel',author:'Meridian Desk',time:d(4),excerpt:'Skip the airport: five short routes that make the journey the destination.',body:t('Rail trips under four hours offer scenery, space and a calmer start to a holiday.','Book early for window seats and carry a few snacks for the longer stretches.','Pick one town, stay two nights and walk everywhere.')},
+{id:'p6',title:'Why local journalism still matters',cat:'Opinion',author:'Meridian Desk',time:d(5),excerpt:'Neighbourhood reporting holds institutions to account in ways national outlets cannot.',body:t('When a council meeting goes unreported, decisions are made with less scrutiny.','Local reporters know the streets, the people and the history behind each story.','Supporting independent publishers is one of the simplest ways readers can protect that work.')}]);})();
+
+const posts=()=>DB.get('mp_posts',[]).sort((a,b)=>b.time-a.time);
+const thumb=p=>`<div class="th" style="--c:${COL[p.cat]||'#0a6a8f'}">${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.remove()">`:''}</div>`;
+const tag=c=>`<a class="tag" style="--c:${COL[c]||'#0a6a8f'}" href="#/category/${encodeURIComponent(c)}">${esc(c)}</a>`;
+const by=p=>`<span class="meta">${esc(p.author)} · ${fmt(p.time)}</span>`;
+function side(){const ps=posts();return `<aside>
+<div class="box"><h4>Search</h4><input id="q" type="search" placeholder="Search stories" aria-label="Search stories"></div>
+<div class="box"><h4>Categories</h4><div class="cl">${CATS.map(([c,col])=>`<a href="#/category/${encodeURIComponent(c)}"><span><b style="--c:${col}"></b>${c}</span><i>${ps.filter(p=>p.cat===c).length}</i></a>`).join('')}</div></div>
+<div class="box"><h4>Write for Meridian Post</h4><p class="meta" style="margin:0 0 12px">Publish your own story and get a shareable link.</p><a class="btn sm" href="#/write">Add a post</a></div></aside>`}
+const page=(main,narrow)=>{$('#app').innerHTML=`<main>${main}</main>${side()}`;const q=$('#q');q.onkeydown=e=>{if(e.key==='Enter'&&q.value.trim())location.hash='#/search/'+encodeURIComponent(q.value.trim())}};
+const list=(ps,empty)=>ps.length?ps.map(p=>`<div class="row">${thumb(p)}<div>${tag(p.cat)}<h3><a href="#/post/${p.id}">${esc(p.title)}</a></h3><p>${esc(p.excerpt)}</p>${by(p)}</div></div>`).join(''):`<div class="empty">${empty}</div>`;
+
+function home(){const ps=posts(),l=ps[0],mid=ps.slice(1,5),rest=ps.slice(5);
+page(!l?`<div class="empty">No stories yet. <a href="#/write">Publish the first one.</a></div>`:`
+<section class="lead"><div>${tag(l.cat)}<h2 style="margin-top:10px"><a href="#/post/${l.id}">${esc(l.title)}</a></h2><p>${esc(l.excerpt)}</p>${by(l)}</div>${thumb(l)}</section>
+<div class="sec">Top stories</div><div class="cards">${mid.map(p=>`<div class="card">${thumb(p)}<div class="b">${tag(p.cat)}<h3><a href="#/post/${p.id}">${esc(p.title)}</a></h3><p>${esc(p.excerpt)}</p>${by(p)}</div></div>`).join('')}</div>
+${rest.length?`<div class="sec">Latest</div>${list(rest)}`:''}`)}
+function cat(c){c=decodeURIComponent(c);page(`<h1>${esc(c)}</h1>`+list(posts().filter(p=>p.cat===c),'Nothing in this category yet. Be the first to publish here.'))}
+function search(q){q=decodeURIComponent(q);const k=q.toLowerCase();page(`<h1>Results for “${esc(q)}”</h1>`+list(posts().filter(p=>(p.title+p.excerpt+p.body+p.author).toLowerCase().includes(k)),'No stories match your search. Try a different word.'))}
+function post(id){const p=posts().find(x=>x.id===id),u=user();if(!p)return page('<div class="empty">That story could not be found. <a href="#/">Back to home</a></div>');
+const url=location.href.split('#')[0]+'#/post/'+p.id,isNew=fresh===p.id;fresh=null;
+page(`<article class="post">${isNew?'<div class="msg ok" role="status">Published. Your story is live and has its own link below.</div>':''}${tag(p.cat)}<h1 style="margin-top:12px">${esc(p.title)}</h1>${by(p)}${thumb(p)}<div class="body">${p.body.split(/\n{2,}/).map(x=>`<p>${esc(x).replace(/\n/g,'<br>')}</p>`).join('')}</div><div class="share"><label for="u">Link to this story</label><div><input id="u" readonly value="${esc(url)}"><button class="btn sm" id="cp" type="button">Copy link</button></div></div>${u&&(u.admin||u.email===p.email)?`<button class="btn del sm" id="del">Delete story</button>`:''}</article>`);
+$('#cp').onclick=()=>{const i=$('#u');i.select();try{navigator.clipboard.writeText(i.value)}catch(e){document.execCommand('copy')}$('#cp').textContent='Copied'};const d=$('#del');if(d)d.onclick=()=>{if(confirm('Delete this story permanently?')){DB.set('mp_posts',posts().filter(x=>x.id!==id));location.hash='#/'}}}
+function write(){const u=user();if(!u){next='#/write';return authForm('login','Sign in or register to add a post.')}
+page(`<h1>Add a post</h1><form class="form" id="f" style="max-width:none"><label for="t">Headline</label><input id="t" required maxlength="140">
+<label for="c">Category</label><select id="c">${CATS.map(([c])=>`<option>${c}</option>`).join('')}</select>
+<label for="i">Image link (optional)</label><input id="i" type="url" placeholder="https://…">
+<label for="e">Short summary</label><textarea id="e" required maxlength="240" style="min-height:70px"></textarea>
+<label for="b">Story</label><textarea id="b" required style="min-height:260px"></textarea><p class="meta">Leave a blank line between paragraphs.</p>
+<button class="btn">Publish story</button></form>`);
+$('#f').onsubmit=e=>{e.preventDefault();const title=$('#t').value.trim(),base=slugify(title);let id=base,n=2;while(posts().some(x=>x.id===id))id=base+'-'+n++;fresh=id;DB.set('mp_posts',[...posts(),{id,title,cat:$('#c').value,img:$('#i').value.trim(),excerpt:$('#e').value.trim(),body:$('#b').value.trim(),author:u.name,email:u.email,time:Date.now()}]);location.hash='#/post/'+id}}
+function authForm(mode,note){const reg=mode==='register';
+page(`<h1>${reg?'Create your account':'Sign in'}</h1><form class="form" id="f">${note?`<div class="msg ok">${esc(note)}</div>`:''}<div id="m"></div>
+${reg?'<label for="n">Full name</label><input id="n" required autocomplete="name">':''}
+<label for="e">Email</label><input id="e" type="email" required autocomplete="email">
+<label for="p">Password</label><input id="p" type="password" required minlength="6" autocomplete="${reg?'new-password':'current-password'}">
+${reg?'<label for="p2">Confirm password</label><input id="p2" type="password" required autocomplete="new-password">':''}
+<p style="margin-top:20px"><button class="btn">${reg?'Create account':'Sign in'}</button></p>
+<p class="meta">${reg?'Already registered? <a href="#/login">Sign in</a>':'New here? <a href="#/register">Create an account</a>'}</p></form>`);
+const bad=t=>{$('#m').innerHTML=`<div class="msg err" role="alert">${t}</div>`};
+$('#f').onsubmit=async e=>{e.preventDefault();const email=$('#e').value.trim().toLowerCase(),pw=$('#p').value,us=DB.get('mp_users',[]);
+if(reg){const n=$('#n').value.trim();if(pw.length<6)return bad('Password must be at least 6 characters.');if(pw!==$('#p2').value)return bad('Passwords do not match.');if(us.some(x=>x.email===email))return bad('An account with this email already exists. Sign in instead.');
+us.push({name:n,email,pass:await hash(pw),admin:us.length===0,joined:Date.now()});DB.set('mp_users',us);DB.set('mp_session',email);location.hash='#/write'}
+else{const u=us.find(x=>x.email===email);if(!u||u.pass!==await hash(pw))return bad('Email or password is incorrect.');DB.set('mp_session',email);const go=next||'#/';next=null;location.hash=go}}}
+function about(){page(`<div class="prose"><h1>About Meridian Post</h1><p>Meridian Post is a publishing platform for news, analysis and blogs. Readers can browse ten categories without an account, and registered members can publish their own stories in minutes.</p>
+<h2>What this site suits best</h2><ul class="fit">
+<li><b>Independent news outlets</b>Small newsrooms that need a clean, credible home.</li>
+<li><b>Local and community news</b>Neighbourhood updates, events and notices.</li>
+<li><b>Multi-author magazines</b>Several writers publishing under one brand.</li>
+<li><b>Niche blogs</b>Technology, health, travel or sports commentary.</li>
+<li><b>Company newsrooms</b>Press releases, product updates and thought leadership.</li>
+<li><b>Schools and universities</b>Student papers and campus bulletins.</li>
+<li><b>Opinion and analysis</b>Long-form essays with room to read.</li>
+<li><b>Freelance journalists</b>A portfolio that doubles as a publication.</li></ul>
+<h2>Our principles</h2><ul><li>Clear headlines and honest summaries.</li><li>Every story carries an author and a date.</li><li>Readers can contact the team about errors at any time.</li></ul>
+<p><a class="btn" href="#/contact">Contact the team</a></p></div>`)}
+function contact(){page(`<h1>Contact us</h1><p class="meta" style="max-width:560px">Send a correction, a story tip or a business enquiry. We read every message.</p><form class="form" id="f"><div id="m"></div>
+<label for="n">Your name</label><input id="n" required><label for="e">Email</label><input id="e" type="email" required>
+<label for="s">Subject</label><select id="s"><option>Story tip</option><option>Correction</option><option>Advertising</option><option>General question</option></select>
+<label for="b">Message</label><textarea id="b" required></textarea><p><button class="btn">Send message</button></p></form>`);
+$('#f').onsubmit=e=>{e.preventDefault();const m=DB.get('mp_messages',[]);m.push({name:$('#n').value,email:$('#e').value,subject:$('#s').value,body:$('#b').value,time:Date.now()});DB.set('mp_messages',m);$('#f').reset();$('#m').innerHTML='<div class="msg ok" role="status">Thank you. Your message has been sent.</div>'}}
+function privacy(){page(`<div class="prose"><h1>Privacy Policy</h1><p class="meta">Last updated ${fmt(Date.now())}</p>
+<p>This policy explains what information Meridian Post collects and how it is used.</p>
+<h2>Information we collect</h2><ul><li>Account details: your name, email address and a protected form of your password.</li><li>Content you publish: stories, headlines and images you link.</li><li>Messages you send through the contact form.</li></ul>
+<h2>How we use it</h2><ul><li>To create and manage your account and show your name as the author of your stories.</li><li>To reply to your messages and fix errors.</li><li>To keep the site secure and working.</li></ul>
+<h2>Storage and security</h2><p>Passwords are never stored in plain text. Account and story data is stored in your browser’s local storage on this device. Do not reuse an important password on any site you do not trust.</p>
+<h2>Cookies and tracking</h2><p>We use local storage to keep you signed in. We do not sell personal information or use advertising trackers. Fonts are loaded from Google Fonts, which may receive your IP address.</p>
+<h2>Sharing</h2><p>Stories you publish are visible to all visitors. We share personal information only when the law requires it.</p>
+<h2>Your choices</h2><p>You may delete your stories at any time. To remove your account or request your data, <a href="#/contact">contact us</a>.</p>
+<h2>Changes</h2><p>We will update the date above when this policy changes.</p></div>`)}
+
+function chrome(){const u=user(),h=location.hash;
+$('#nav').innerHTML=`<a href="#/" class="${h==='#/'||!h?'on':''}">Home</a><a href="#/about" class="${h==='#/about'?'on':''}">About</a><a href="#/contact" class="${h==='#/contact'?'on':''}">Contact</a>`+(u?'':`<a href="#/login">Sign in</a><a href="#/register">Register</a>`)+`<a href="#/write" class="btn sm" style="color:#fff;margin-left:6px">Add Post</a>`;
+$('#topright').innerHTML=u?`Signed in as ${esc(u.name)}<a href="#/logout">Sign out</a>`:'<a href="#/login" style="margin:0">Sign in</a><a href="#/register">Register</a>';
+$('#cats').innerHTML=CATS.map(([c,col])=>`<a href="#/category/${encodeURIComponent(c)}" style="--c:${col}" class="${h==='#/category/'+encodeURIComponent(c)?'on':''}">${c}</a>`).join('')}
+function route(){const h=location.hash||'#/',[,r,a]=h.split('/');
+if(r==='logout'){DB.set('mp_session',null);location.hash='#/';return}
+chrome();$('#nav').classList.remove('open');$('#burger').setAttribute('aria-expanded','false');
+({'':home,about,contact,privacy,write,login:()=>authForm('login'),register:()=>authForm('register'),category:()=>cat(a),post:()=>post(a),search:()=>search(a)}[r]||home)();
+document.title=(r&&r!==''?r[0].toUpperCase()+r.slice(1)+' – ':'')+'Meridian Post';window.scrollTo(0,0)}
+$('#burger').onclick=()=>{const o=$('#nav').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
+$('#date').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+$('#yr').textContent=new Date().getFullYear();
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
